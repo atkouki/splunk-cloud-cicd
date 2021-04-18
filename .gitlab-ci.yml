@@ -1,0 +1,76 @@
+stages:
+  - validate-app
+  - generate-data
+  - deploy-configs-views
+  - build-package
+
+
+# runs appinspect against app, archives result
+appinspect:
+  image: weberjas/appinspect:latest
+  stage: validate-app
+  script:
+    - splunk-appinspect inspect testing_app --output-file appinspect_result.json --mode precert
+  artifacts:
+    paths:
+      - appinspect_result.json
+    when: always
+    expire_in: 3 days
+  only:
+    - merge_requests
+    - master
+  tags:
+    - bel
+
+
+# uses the Eventgen Docker image to recently-date the sample data
+generate-data:
+  stage: generate-data
+  image: weberjas/eventgen7:latest
+  script:
+    - mkdir output
+    - sh docker_validation.sh splunk_8_0_1 testing_app
+  artifacts:
+    paths:
+      - ./output
+    expire_in: 1 day
+  only:
+    - merge_requests
+    - master
+  tags:
+    - bel
+
+
+# packages the sample app as an artifact result of the pipeline
+package:
+  stage: build-package
+  script:
+    - mkdir -p build
+    - tar cfvz build/testing_app.tgz testing_app
+  artifacts:
+    # cypress test output
+    paths:
+      - $CI_PROJECT_DIR/build
+    when: always
+    expire_in: 3 days
+  only:
+    - merge_requests
+    - master
+  tags:
+    - bel
+  
+deploy-configurations:
+  stage: deploy-configs-views
+  script:
+    - python python_scripts/configs_deployer.py "https://csms-j5w3er-64111.stg.splunkcloud.com:8089" $CI_PROJECT_DIR "testing_app"
+  only:
+    - merge_requests
+    - master
+
+deploy-views:
+  stage: deploy-configs-views
+  script:
+    - python python_scripts/dashboards_deployer.py "https://csms-j5w3er-64111.stg.splunkcloud.com:8089" $CI_PROJECT_DIR "testing_app"
+  only:
+    - merge_requests
+    - master

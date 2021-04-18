@@ -1,0 +1,29 @@
+[3/17/10 3:11:44:741 CDT] 00000027 ConnectionEve A   J2CA0056I: The Connection Manager received a fatal connection error from the Resource Adapter for resource jdbc/wpdbDS3.  The exception which was received is javax.transaction.xa.XAException
+[3/17/10 3:11:55:351 CDT] 000000c6 ConnectionEve A   J2CA0056I: The Connection Manager received a fatal connection error from the Resource Adapter for resource jdbc/wpdbDS5.  The exception which was received is com.ibm.websphere.ce.cm.StaleConnectionException: [IBM][CLI Driver] SQL1224N  The database manager is not able to accept new requests, has terminated all requests in progress, or has terminated your particular request due to a problem with your request.  SQLSTATE=55032
+:COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver] SQL1224N  The database manager is not able to accept new requests, has terminated all requests in progress, or has terminated your particular request due to a problem with your request.  SQLSTATE=55032
+
+[3/17/10 3:11:55:351 CDT] 000000c6 DataStoreCont E com.ibm.wps.datastore.impl.DataStoreContext handleException EJPDB0001E: Error occurred during database access. Last SQL statement is [SELECT OID, CREATED, MODIFIED, PORT_DESC_OID, PORT_DESC_SL, SCOPE_OID, WSC_INST_HANDLE, WSP_IS_PROVIDED, WSP_PROD_OFF_INST, TYPE, PARENT_OID, PARENT_SL, PREF_SCOPE_TYPE, PREF_SCOPE_UID, VALIDATION_BASE, VALIDATION_STATE, JSR_DATA FROM customiz.PORT_INST WHERE (OID = ?)].
+	com.ibm.wps.datastore.domains.DomainUnavailableException: EJPDB0101E: Database domain [Domain: cust] is currently unavailable.
+	at com.ibm.wps.datastore.impl.DataStoreContext.handleException(DataStoreContext.java:315)
+	at com.ibm.wps.datastore.impl.ResourcePersister.findInternal2(ResourcePersister.java:981)
+	at com.ibm.wps.datastore.impl.PortletInstancePersister.findInternal2(PortletInstancePersister.java:373)
+	at com.ibm.wps.datastore.impl.ResourcePersister.findInternal(ResourcePersister.java:880)
+	at com.ibm.wps.datastore.impl.ResourcePersister.findSingleObject(ResourcePersister.java:1283)
+	at com.ibm.wps.datastore.impl.ResourcePersister.findInternal(ResourcePersister.java:1456)
+	at com.ibm.wps.datastore.impl.ResourcePersister.find(ResourcePersister.java:1312)
+	at com.ibm.wps.datastore.impl.ResourceHomeImpl.find(ResourceHomeImpl.java:55)
+	at com.ibm.wps.datastore.impl.federation.ResourceHomeImpl.find(ResourceHomeImpl.java:446)
+	... 12 more
+Caused by: com.ibm.websphere.ce.cm.StaleConnectionException: [IBM][CLI Driver] SQL1224N  The database manager is not able to accept new requests, has terminated all requests in progress, or has terminated your particular request due to a problem with your request.  SQLSTATE=55032
+
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:67)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:522)
+	at com.ibm.websphere.rsadapter.GenericDataStoreHelper.mapExceptionHelper(GenericDataStoreHelper.java:525)
+	at com.ibm.websphere.rsadapter.GenericDataStoreHelper.mapException(GenericDataStoreHelper.java:580)
+	at com.ibm.ws.rsadapter.jdbc.WSJdbcUtil.mapException(WSJdbcUtil.java:909)
+	at com.ibm.ws.rsadapter.jdbc.WSJdbcPreparedStatement.executeQuery(WSJdbcPreparedStatement.java:689)
+	at com.ibm.wps.datastore.impl.DataStoreContext.executeQuery(DataStoreContext.java:538)
+	at com.ibm.wps.datastore.impl.ResourcePersister.findInternal2(ResourcePersister.java:914)
+	... 70 more
