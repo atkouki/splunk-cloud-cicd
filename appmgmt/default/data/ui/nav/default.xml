@@ -1,0 +1,23 @@
+<nav>
+ <collection label="About">
+	 <view name="arch" default="true" />
+  <divider />
+  <a href="mailto:se@splunk.com">Send Feedback...</a>
+ </collection>
+ <collection label="IT Operations">
+  <view name="operational_visibility" />
+  <view name="env_state" />
+  <view name="db_state" />
+  <view name="livetail" />    
+ </collection>
+ <collection label="Executive Dashboards">
+  <view name="ceo" />
+</collection>
+ <collection label="Reports">
+  <collection label="App Mgmt">
+   <saved source="all" match="AppMgmt"/>
+  </collection>
+ </collection>
+</nav>
+
+

@@ -1,0 +1,55 @@
+[2/26/10 8:10:45:471 CST] 000000b1 StorageApi    E com.ibm.wps.policy.commands.StorageApi logExceptionGetPvsProperties EJQAB0061E: An ItemNotFoundException occurred in method logExceptionGetPvsProperties.
+                                 com.ibm.portal.WpsException: EJQAB0061E: An ItemNotFoundException occurred in method logExceptionGetPvsProperties.
+	at com.ibm.wps.policy.commands.StorageApi.logExceptionGetPvsProperties(StorageApi.java:1202)
+	at com.ibm.wps.policy.commands.StorageApi.getPvsProperties(StorageApi.java:1265)
+	at com.ibm.wps.policy.services.PolicyService.getPolicy(PolicyService.java:191)
+	at com.ibm.wps.policy.services.PolicyCacheManager.getPoliciesFromRespository(PolicyCacheManager.java:409)
+	at com.ibm.wps.policy.services.PolicyCacheManager.traverseDownTree(PolicyCacheManager.java:698)
+	at com.ibm.wps.policy.services.PolicyCacheManager.traverseTree(PolicyCacheManager.java:573)
+	at com.ibm.wps.policy.services.PolicyCacheManager.getPolicies(PolicyCacheManager.java:188)
+	at com.ibm.ws.wswebcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:524)
+	at com.ibm.wsspi.webcontainer.servlet.GenericServletWrapper.handleRequest(GenericServletWrapper.java:122)
+	... 85 more
+[3/10/10 14:55:31:330 CST] 000000b0 PolicyService E com.ibm.wps.policy.services.PolicyService getPolicy Exception calling storage api: com.ibm.portal.WpsException: EJQAB0061E: An ItemNotFoundException occurred in method logExceptionGetPvsProperties.
+[3/10/10 14:55:46:142 CST] 000000b0 ServletWrappe I   SRVE0242I: [PA_Eecontentandlayout] [/wps/PA_Eecontentandlayout] [/WEB-INF/composer/html/choosePortlets.jsp]: Initialization successful.
+[3/10/10 14:55:46:173 CST] 000000b0 ServletWrappe I   SRVE0242I: [PA_Eecontentandlayout] [/wps/PA_Eecontentandlayout] [/WEB-INF/composer/html/portletTable.jsp]: Initialization successful.
+[3/10/10 14:55:58:611 CST] 000000b0 ServletWrappe I   SRVE0242I: [PA_Eecontentandlayout] [/wps/PA_Eecontentandlayout] [/WEB-INF/composer/html/endSolo.jsp]: Initialization successful.
+[3/10/10 14:56:01:408 CST] 000002ce ServletWrappe I   SRVE0242I: [PA_AdvPortDevPumaTest] [/wps/PA_AdvPortDevPumaTest] [PumaTest]: Initialization successful.
+[3/10/10 14:56:18:736 CST] 000000af StorageApi    E com.ibm.wps.policy.commands.StorageApi logExceptionGetPvsProperties EJQAB0061E: An ItemNotFoundException occurred in method logExceptionGetPvsProperties.
+                                 com.ibm.portal.WpsException: EJQAB0061E: An ItemNotFoundException occurred in method logExceptionGetPvsProperties.
+	at com.ibm.wps.policy.commands.StorageApi.logExceptionGetPvsProperties(StorageApi.java:1202)
+	at com.ibm.wps.policy.commands.StorageApi.getPvsProperties(StorageApi.java:1265)
+	at com.ibm.wps.policy.services.PolicyService.getPolicy(PolicyService.java:191)
+	at com.ibm.wps.policy.services.PolicyCacheManager.getPoliciesFromRespository(PolicyCacheManager.java:409)
+	at com.ibm.wps.policy.services.PolicyCacheManager.traverseDownTree(PolicyCacheManager.java:698)
+	at com.ibm.wps.policy.services.PolicyCacheManager.traverseTree(PolicyCacheManager.java:573)
+	at com.ibm.wps.policy.services.PolicyCacheManager.getPolicies(PolicyCacheManager.java:188)
+	at com.ibm.wps.policy.services.PolicyManagerServerSideImpl.getPVSByPath(PolicyManagerServerSideImpl.java:352)
+	at com.ibm.wps.theme.policy.ThemePolicyManager.getThemePolicyValueSet(ThemePolicyManager.java:227)
+	at com.ibm.wps.theme.policy.tags.InitThemePolicyTag.doStartTag(InitThemePolicyTag.java:149)
+	at com.ibm._jsp._Default._jspService(_Default.java:704)
+	at com.ibm.ws.jsp.runtime.HttpJspBase.service(HttpJspBase.java:87)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:856)
+	at com.ibm.wps.engine.templates.themes.Default.render(Default.java:247)
+	... 84 more
+[3/9/10 19:17:18:564 CST] 000000b0 ServletWrappe I   SRVE0242I: [PA_WCMLRingPortJSR286] [/wps/PA_WCMLRingPortJSR286] [Web Content Viewer (JSR 286)]: Initialization successful.
+[3/9/10 19:17:24:127 CST] 000000b0 ServletWrappe I   SRVE0242I: [PA_WCMLRingPortJSR286] [/wps/PA_WCMLRingPortJSR286] [/jsp/html/view.jsp]: Initialization successful.
+[3/9/10 19:17:29:892 CST] 000000b0 ServletWrappe I   SRVE0242I: [PA_WCMLRingPortJSR286] [/wps/PA_WCMLRingPortJSR286] [/jsp/html/dyntitle.jsp]: Initialization successful.
+[3/9/10 19:17:37:095 CST] 000000b0 ServletWrappe I   SRVE0242I: [wps] [/wps] [PUBLIC_HANDLER_47555912]: Initialization successful.
+[3/9/10 21:43:43:595 CST] 000000b0 WebContainer  E   SRVE0255E: A WebGroup/Virtual Host to handle /robots.txt has not been defined.
+[3/9/10 21:43:43:658 CST] 000000b0 WebContainer  E   SRVE0255E: A WebGroup/Virtual Host to handle /robots.txt has not been defined.
+[3/9/10 21:43:43:736 CST] 00000097 PasswordManag E com.ibm.crawler.PasswordManager  getEncodedPair Resolving host 10.1.130.117
+[2/26/10 8:10:45:784 CST] 000000b1 PolicyService E com.ibm.wps.policy.services.PolicyService getPolicy Exception calling storage api: com.ibm.portal.WpsException: EJQAB0061E: An ItemNotFoundException occurred in method logExceptionGetPvsProperties.
+[2/26/10 8:10:45:862 CST] 000000b1 ServletWrappe I   SRVE0242I: [PA_WebScanner] [/wps/PA_WebScanner] [/jsp/html/ManageSearchCollections.jsp]: Initialization successful.
+[3/17/10 3:11:51:491 CDT] 000000be Query         E com.ibm.icm.da.portable.query.Query openQueryCursor() Executing Original Query: //element(*, ibmcontentwcm:siteArea)[@jcr:uuid = '86beef004b486315af6dbfa994a51ffa']/(element(*, ibmcontentwcm:webContent) | element(*, ibmcontentwcm:webContentLink))[(@ibmcontentwcm:workflowStatus = 1 )]  order by @ibmcontentwcm:position ascending
+[3/17/10 3:11:51:507 CDT] 000000be Query         E com.ibm.icm.da.portable.query.Query openQueryCursor() Executing actual query: SELECT DISTINCT Links_4.TIID , 1 WSID , NodesTab_8.VID , NodesTab_8.CTID , NodesTab_8.UUID , NodesTab_8.COMPID , Properties_11.PROPVAL ORDERVAL12  FROM jcr.ICMSTJCRLV00001 Links_4, jcr.ICMSTJCRLV00001 Links_1, jcr.ICMSTJCRN00001 NodesTab_8, (SELECT ibmcontentwcm_9.ITEMID , ibmcontentwcm_9.VERSIONID , ibmcontentwcm_9.ATTR0000001319 PROPVAL  FROM jcr.ICMUT01562001 ibmcontentwcm_9  UNION ALL SELECT ibmcontentwcm_10.ITEMID , ibmcontentwcm_10.VERSIONID , ibmcontentwcm_10.ATTR0000001319 PROPVAL  FROM jcr.ICMUT01335001 ibmcontentwcm_10 ) Properties_11  WHERE ((((((Links_4.TCTID = ?) OR (Links_4.TCTID = ?)) AND ((Links_1.TCTID = ?) AND (EXISTS (SELECT CAST(NULL AS CHAR(1))  FROM (SELECT NodesTab_2.IID ITEMID , NodesTab_2.VID VERSIONID , NodesTab_2.UUID PROPVAL  FROM jcr.ICMSTJCRN00001 NodesTab_2 ) Properties_3  WHERE ((Properties_3.ITEMID = Links_1.TIID) AND (Properties_3.VERSIONID = Links_1.TVID)) AND (Properties_3.PROPVAL = ?))))) AND (Links_4.SIID = Links_1.TIID)) AND (EXISTS (SELECT CAST(NULL AS CHAR(1))  FROM (SELECT ibmcontentwcm_5.ITEMID , ibmcontentwcm_5.VERSIONID , ibmcontentwcm_5.ATTR0000001328 PROPVAL  FROM jcr.ICMUT01562001 ibmcontentwcm_5  UNION ALL SELECT ibmcontentwcm_6.ITEMID , ibmcontentwcm_6.VERSIONID , ibmcontentwcm_6.ATTR0000001328 PROPVAL  FROM jcr.ICMUT01335001 ibmcontentwcm_6 ) Properties_7  WHERE ((Properties_7.ITEMID = Links_4.TIID) AND (Properties_7.VERSIONID = Links_4.TVID)) AND (Properties_7.PROPVAL = ?)))) AND (Links_4.TIID = NodesTab_8.IID)) AND ((Properties_11.ITEMID = Links_4.TIID) AND (Properties_11.VERSIONID = Links_4.TVID)) ORDER BY ORDERVAL12 ASC WITH UR
+[3/17/10 3:11:51:507 CDT] 000000be Query         E com.ibm.icm.da.portable.query.Query openQueryCursor() Query Parameter Marker Values: 
+[3/17/10 3:11:51:507 CDT] 000000be Query         E com.ibm.icm.da.portable.query.Query openQueryCursor() Param Marker 1: Type = Long, Value = 1562
+[3/17/10 3:11:51:507 CDT] 000000be Query         E com.ibm.icm.da.portable.query.Query openQueryCursor() Param Marker 2: Type = Long, Value = 1335
+[3/17/10 3:11:51:507 CDT] 000000be Query         E com.ibm.icm.da.portable.query.Query openQueryCursor() Param Marker 3: Type = Long, Value = 1641
+[3/17/10 3:11:51:507 CDT] 000000be Query         E com.ibm.icm.da.portable.query.Query openQueryCursor() Param Marker 4: Type = Binary, Hex String Value = [B@da00da0
+[3/9/10 22:30:00:455 CST] 0000009e SchedulerTask I com.ibm.wps.datastore.ejb.cleanup.SchedulerTaskNotificationSinkBean handleEvent() EJPDE0005I: Task WPS_UNIQUE_TASK_com.ibm.portal.ai.task.AITask_18_39G6IBK0980P00IGH4NQ253044Purger with ID 4970 was started.
+[3/9/10 22:30:00:455 CST] 000000a1 SchedulerTask I com.ibm.wps.datastore.ejb.cleanup.SchedulerTaskNotificationSinkBean handleEvent() EJPDE0005I: Task WPS_UNIQUE_TASK_com.ibm.portal.ai.task.AITask_18_39G6IBK09G6360ICLBU4QR10G0Purger with ID 4775 was started.
+[3/9/10 22:30:00:470 CST] 000000a1 SchedulerTask I com.ibm.wps.datastore.ejb.cleanup.SchedulerTaskNotificationSinkBean handleEvent() EJPDE0007I: Task WPS_UNIQUE_TASK_com.ibm.portal.ai.task.AITask_18_39G6IBK09G6360ICLBU4QR10G0Purger with ID 4775 has finished.
+[3/9/10 22:30:00:470 CST] 000000b6 SchedulerTask I com.ibm.wps.datastore.ejb.cleanup.SchedulerTaskNotificationSinkBean handleEvent() EJPDE0007I: Task WPS_UNIQUE_TASK_com.ibm.portal.ai.task.AITask_18_39G6IBK0986200ICG1KC7134F3PolicyHandler with ID 4960 has finished.
+[3/9/10 22:30:00:486 CST] 000000a0 SchedulerTask I com.ibm.wps.datastore.ejb.cleanup.SchedulerTaskNotificationSinkBean handleEvent() EJPDE0007I: Task WPS_UNIQUE_TASK_com.ibm.portal.ai.task.AITask_18_39G6IBK0986200ICG1KC713C04Purger with ID 4961 has finished.

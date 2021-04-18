@@ -1,0 +1,6 @@
+<nav search_view="search" color="#FF22AA">
+  <view name="web_analytics" default="true" />
+  <view name="panel_grouping_with_charts"/>
+  <view name="custom_style" />
+  <view name="custom_data_visualizations" />
+</nav>

@@ -1,0 +1,6 @@
+091201 15:06:20 [CRITICAL] /opt/mysql/bin/mysqld: Disk is full writing '/mysqllog/binlog/localhost-3306-bin.000020' (Errcode: 28). Waiting for someone to free space... Retry in 60 secs
+091201 15:06:20 [CRITICAL] Error writing file '/mysqllog/slow_log/localhost_3306_slow_queries.log' (errno: 1)
+091201 15:06:20 [CRITICAL] Error writing file '/mysqllog/binlog/localhost-3306-bin' (errno: 28)
+091201 15:06:20 [CRITICAL] Could not use /mysqllog/binlog/localhost-3306-bin for logging (error 28)
+091201 15:06:20 [CRITICAL] Aborting
+091201 15:06:20 [CRITICAL] ./mysqld: Shutdown complete
