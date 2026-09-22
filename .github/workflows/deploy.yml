@@ -1,0 +1,54 @@
+name: Deploy
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: target environment (envs/<name>.yml)
+        required: true
+        type: choice
+        options: [dev, staging, prod]
+      package_run_id:
+        description: run id of the Release workflow whose package to deploy
+        required: false
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    env:
+      ACS_TOKEN: ${{ secrets.ACS_TOKEN }}
+      SPLUNKCOM_USER: ${{ secrets.SPLUNKCOM_USER }}
+      SPLUNKCOM_PASSWORD: ${{ secrets.SPLUNKCOM_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install ./cicd
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-package
+          run-id: ${{ inputs.package_run_id || github.run_id }}
+          github-token: ${{ github.token }}
+      - name: Deploy through ACS
+        run: |
+          splunk-cicd deploy --env "envs/${{ inputs.environment }}.yml" \
+            --package 'dist/*.tar.gz' \
+            --backup-dir backups \
+            --report "reports/deploy-${{ inputs.environment }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: deploy-${{ inputs.environment }}
+          path: |
+            reports/
+            backups/
+          retention-days: 90

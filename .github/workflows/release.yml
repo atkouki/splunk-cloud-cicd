@@ -1,0 +1,54 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+env:
+  APP_DIR: apps/testing_app
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install tooling
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libmagic1
+          pip install ./cicd splunk-appinspect
+      - name: Package (version must match the tag)
+        run: splunk-cicd package --app "$APP_DIR" --out dist --expect-version "$GITHUB_REF_NAME"
+      - name: AppInspect
+        run: splunk-cicd inspect-local --package 'dist/*.tar.gz' --report reports/appinspect-local.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-package
+          path: |
+            dist/
+            reports/
+          retention-days: 90
+
+  deploy-dev:
+    needs: build
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: dev
+    secrets: inherit
+
+  deploy-staging:
+    needs: deploy-dev
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: staging
+    secrets: inherit
+
+  deploy-prod:
+    needs: deploy-staging
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: prod
+    secrets: inherit

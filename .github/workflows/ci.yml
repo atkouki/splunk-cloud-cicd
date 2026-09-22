@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+env:
+  APP_DIR: apps/testing_app
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install tooling
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libmagic1
+          pip install ./cicd[dev] splunk-appinspect
+      - name: Unit tests
+        run: pytest cicd/tests -q
+      - name: Package
+        run: splunk-cicd package --app "$APP_DIR" --out dist --list
+      - name: AppInspect (cloud, private_victoria, private_classic)
+        run: splunk-cicd inspect-local --package 'dist/*.tar.gz' --report reports/appinspect-local.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: package-and-reports
+          path: |
+            dist/
+            reports/
+          retention-days: 14
+
+  docker-test:
+    if: vars.ENABLE_DOCKER_TEST == 'true'
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: package-and-reports
+      - name: Run the app in splunk/splunk and check field extractions
+        run: cicd/scripts/docker_test.sh dist/*.tar.gz fixtures/access_combined.sample.log

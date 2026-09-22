@@ -1,0 +1,13 @@
+name: dev
+stack: example-dev.stg
+experience: auto
+app: testing_app
+indexes:
+  - name: appmgmt
+    datatype: event
+    searchableDays: 30
+    maxDataSizeMB: 10000
+allow_manual_checks: false
+install_timeout: 900
+backup_before_install: true
+require_backup: false
