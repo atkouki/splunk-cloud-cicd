@@ -1,11 +1,11 @@
-<form>
+<form version="1.1">
   <label>Web Analytics V1</label>
   <fieldset submitButton="false">
     <input type="time" token="field1" searchWhenChanged="true">
-      <label></label>
+      <label>Time range</label>
       <default>
-        <earliest>1612828800</earliest>
-        <latest>1613001600</latest>
+        <earliest>-7d@d</earliest>
+        <latest>now</latest>
       </default>
     </input>
   </fieldset>
